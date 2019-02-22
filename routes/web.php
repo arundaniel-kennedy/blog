@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+  'uses' => 'FrontEndController@index',
+  'as' => 'index'
+]);
 
 Auth::routes();
 
@@ -46,6 +47,11 @@ Route::group(['prefix'=> 'admin', 'middleware' => 'auth'],function(){
     'uses' => 'UsersController@not_admin',
     'as' => 'user.not_admin'
   ])->middleware('admin');
+
+  Route::get('/user/delete/{id}',[
+    'uses' => 'UsersController@destroy',
+    'as' => 'user.delete'
+  ]);
 
   Route::get('/user/profile',[
     'uses' => 'ProfilesController@index',
@@ -165,4 +171,15 @@ Route::group(['prefix'=> 'admin', 'middleware' => 'auth'],function(){
     'uses' => 'TagsController@destroy',
     'as' => 'tag.delete'
   ]);
+
+  Route::post('/settings/update',[
+    'uses' => 'SettingsController@update',
+    'as' => 'settings.update'
+  ])->middleware('admin');
+
+  Route::get('/settings',[
+    'uses' => 'SettingsController@index',
+    'as' => 'settings'
+  ])->middleware('admin');
+
 });

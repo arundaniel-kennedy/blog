@@ -13,6 +13,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -21,7 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
 
 
 </head>
@@ -149,7 +151,11 @@
                     <a href="{{ route('posts.trashed') }}">Trashed posts</a>
                   </li>
 
-
+                  @if(Auth::user()->admin)
+                    <li class="list-group-item">
+                      <a href="{{ route('settings') }}">Blog settings</a>
+                    </li>
+                  @endif
 
                 </ul>
               </div>
@@ -164,5 +170,6 @@
 
 
     </div>
+    @yield('scripts')
 </body>
 </html>

@@ -41,9 +41,15 @@
                   </td>
 
                   <td>
-                    <a href="" class="btn bn-xs btn-danger">
-                      <span class="fa fa-trash"></span>
-                    </a>
+                    @if(Auth::id() === $user->id)
+                      <a href="{{ route('user.delete',[ 'id' => $user->id]) }}" class="btn bn-xs btn-danger">
+                        <span class="fas fa-trash"></span>
+                      </a>
+                    @else
+                      <a href="{{ route('user.delete',[ 'id' => $user->id]) }}" class="btn bn-xs btn-danger">
+                        <span class="fas fa-trash"></span>
+                      </a>
+                    @endif
                   </td>
 
                 </tr>

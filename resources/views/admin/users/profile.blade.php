@@ -16,12 +16,12 @@
 
           <div class="form-group">
             <label for="name">Name of User:</label>
-            <input class="form-control-plaintext" type="text" name="name" autocomplete="name" value="{{ $user->name }}" id="name">
+            <input class="form-control" type="text" name="name" autocomplete="name" value="{{ $user->name }}" id="name" readonly>
           </div>
 
           <div class="form-group">
             <label for="email">User Email:</label>
-            <input class="form-control-plaintext" type="email" name="email" autocomplete="email" value="{{ $user->email }}" id="email">
+            <input class="form-control" type="email" name="email" autocomplete="email" value="{{ $user->email }}" id="email" readonly>
           </div>
 
           <!--div class="form-group">
@@ -36,18 +36,18 @@
 
           <div class="form-group">
             <label for="facebook">Facebook:</label>
-            <input class="form-control-plaintext" type="text" name="facebook" value="{{ $user->profile->facebook }}" id="facebook">
+            <input class="form-control" type="text" name="facebook" value="{{ $user->profile->facebook }}" id="facebook" readonly>
           </div>
 
           <div class="form-group">
             <label for="youtube">Youtube:</label>
-            <input class="form-control-plaintext" type="text" name="youtube" value="{{ $user->profile->youtube }}" id="youtube">
+            <input class="form-control" type="text" name="youtube" value="{{ $user->profile->youtube }}" id="youtube" readonly>
           </div>
 
           <div class="form-group">
             <label for="about">Something About you:</label>
-            <textarea name="about" id="about" rows="5" cols="5" class="form-control-plaintext"
-            value="{{ $user->profile->about }}"></textarea>
+            <textarea name="about" id="about" rows="5" cols="5" class="form-control"
+            readonly>{{ $user->profile->about }}</textarea>
           </div>
 
           <div class="form-group text-center">
